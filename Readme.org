@@ -1,6 +1,6 @@
 * Purpose
 
-Since twitter started charging for API, you can't do much with a free twitter. This exists to provide something akin to the old twitter api to provide a list of tweet
+Since twitter started charging for API, you can't do much with a free twitter. This exists to provide something akin to the old twitter api to provide a list of tweets in the twitter JSON format
 
 * How to use
 
