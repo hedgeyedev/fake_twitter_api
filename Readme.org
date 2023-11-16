@@ -1,0 +1,8 @@
+* Purpose
+
+Since twitter started charging for API, you can't do much with a free twitter. This exists to provide something akin to the old twitter api to provide a list of tweet
+
+* How to use
+
+- bundle install
+- ruby main.rb # optional -p <port number> as a sinatra app it defaults to 4567
