@@ -5,6 +5,11 @@ require 'time'
 require 'literate_randomizer'
 require 'sinatra'
 
+before do
+  headers 'Access-Control-Allow-Origin' => '*',
+          'Access-Control-Allow-Methods' => 'GET',
+          'Access-Control-Allow-Headers' => 'Accept, Origin, Content-Type'
+end
 
 class Tweet
   SOURCES = [
