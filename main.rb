@@ -1,10 +1,35 @@
 # coding: utf-8
+require 'optparse'
 require 'json'
 require 'securerandom'
 require 'time'
 require 'literate_randomizer'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: ruby main.rb [options]"
+
+  opts.on("--cors PORT", "Enable CORS for the specified port") do |port|
+    options[:cors] = port
+  end
+
+  opts.on("-p", "--port PORT", "Listen on the specified port") do |port|
+    options[:port] = port
+  end
+
+end.parse!(ARGV) # use parse! to remove the parsed options from ARGV
 require 'sinatra'
 
+if options[:port]
+  set :port, options[:port]
+end
+
+if options[:cors]
+  require 'sinatra/cors'
+  set :allow_origin, "http://localhost:#{options[:cors]}"
+  set :allow_methods, "GET,POST"
+  set :allow_headers, "content-type"
+end
 
 class Tweet
   SOURCES = [

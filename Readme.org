@@ -7,6 +7,9 @@ Since twitter started charging for API, you can't do much with a free twitter. T
 - bundle install
 - ruby main.rb # optional -p <port number> as a sinatra app it defaults to 4567
 
+** If you need CORS support you can pass a port number via --cors to allow requests from localhost:<port>
+- ruby main.rb --cors 300
+  
 * How to consume
 - if you hit this url http://localhost:4567/1.1/statuses/status.json?count=3 # note that count can be supplied, defaults to 30
 - you get json like this

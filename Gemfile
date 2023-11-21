@@ -4,3 +4,4 @@ source "https://rubygems.org"
 
 gem 'sinatra'
 gem "literate_randomizer"
+gem 'sinatra-cors'
