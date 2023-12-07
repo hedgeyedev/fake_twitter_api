@@ -191,7 +191,9 @@ AUTHORS = [
 
   def initialize
     screen_name = AUTHORS.sample.gsub(' ', '_').downcase
-    time = (Time.now- Random.new.rand(20..100)).strftime("%a %b %d %H:%M:%S +0000 %Y") 
+    time = (Time.now- Random.new.rand(20..100)).strftime("%a %b %d %H:%M:%S +0000 %Y")
+    author_index = rand AUTHORS.size
+    in_reply_to_screen_name = author_index.even? ? AUTHORS[author_index].gsub(' ', '_').downcase : nil
     @tweet_data = {
       "text" => LiterateRandomizer.sentence,
       "truncated" => [true, false].sample,
@@ -199,7 +201,7 @@ AUTHORS = [
       "in_reply_to_status_id" => nil,
       "favorited" => false,
       "source" => "<a href=\"http://twitter.com/\" rel=\"nofollow\">#{SOURCES.sample}</a>",
-      "in_reply_to_screen_name" => nil,
+      "in_reply_to_screen_name" => in_reply_to_screen_name,
       "in_reply_to_status_id_str" => nil,
       "id_str" => SecureRandom.hex(10),
       "entities" => {
